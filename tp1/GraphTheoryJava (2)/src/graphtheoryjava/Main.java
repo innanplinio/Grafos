@@ -46,19 +46,20 @@ public class Main {
             System.out.println();
             Random r = new Random();
 
-            //Início do cálculo de caminho mínimo
-            int vert = 3353; //qtd de vertices no grafo            
+            int vert = 3353; //qtd de vertices no grafo 
+
+            //Sorteio de Vértice De início e fim
+            int s, d;
+            s = r.nextInt(vert);
+            d = r.nextInt(vert);
+            while (s == d) {
+                d = r.nextInt(vert);
+            }
+            System.out.println("\nS: " + s + " D: " + d + "\n");
+
+            //Início do cálculo de caminho mínimo           
             Double time2;
             for (int i = 0; a.size() != 10; i++) {
-
-                //Sorteio de Vértice De início e fim
-                int s, d;
-                s = r.nextInt(vert);
-                d = r.nextInt(vert);
-                while (s == d) {
-                    d = r.nextInt(vert);
-                }
-                System.out.println("\nS: "+s+" D: "+d+"\n");
 
                 long time = System.nanoTime();
                 c.Dijkstra(graph, s, d);
